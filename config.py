@@ -3,17 +3,17 @@ import numpy as np
 
 class mask_config():
     def __init__(self, NUMBER_OF_CLASSES):
-        self.NAME = "tags"
+        self.NAME = "ASDC_GPU"
         self.IMAGES_PER_GPU = 2
-        self.NUM_CLASSES = 1 + NUMBER_OF_CLASSES  # Background + tags
-        self.STEPS_PER_EPOCH = 100
+        self.NUM_CLASSES = 2
+        self.STEPS_PER_EPOCH = 300
         self.DETECTION_MIN_CONFIDENCE = 0.9
         self.GPU_COUNT = 1
-        self.IMAGES_PER_GPU = 1
+        self.IMAGES_PER_GPU = 2
         self.NAME = None  # Override in sub-classes
         self.GPU_COUNT = 1
-        self.IMAGES_PER_GPU = 1
-        self.STEPS_PER_EPOCH = 1000
+        self.IMAGES_PER_GPU = 2
+        self.STEPS_PER_EPOCH = 300
         self.VALIDATION_STEPS = 50
         self.BACKBONE = "resnet101"
         self.COMPUTE_BACKBONE_SHAPE = None
@@ -30,8 +30,8 @@ class mask_config():
         self.USE_MINI_MASK = True
         self.MINI_MASK_SHAPE = (56, 56)  # (height, width) of the mini-mask
         self.IMAGE_RESIZE_MODE = "square"
-        self.IMAGE_MIN_DIM = 800
-        self.IMAGE_MAX_DIM = 1024
+        self.IMAGE_MIN_DIM = 768
+        self.IMAGE_MAX_DIM = 768
         self.IMAGE_MIN_SCALE = 0
         self.MEAN_PIXEL = np.array([123.7, 116.8, 103.9])
         self.TRAIN_ROIS_PER_IMAGE = 200
@@ -43,8 +43,8 @@ class mask_config():
         self.RPN_BBOX_STD_DEV = np.array([0.1, 0.1, 0.2, 0.2])
         self.BBOX_STD_DEV = np.array([0.1, 0.1, 0.2, 0.2])
         self.DETECTION_MAX_INSTANCES = 100
-        self.DETECTION_MIN_CONFIDENCE = 0.7
-        self.DETECTION_NMS_THRESHOLD = 0.3
+        self.DETECTION_MIN_CONFIDENCE = 0.95
+        self.DETECTION_NMS_THRESHOLD = 0.05
         self.LEARNING_RATE = 0.001
         self.LEARNING_MOMENTUM = 0.9
         self.WEIGHT_DECAY = 0.0001
